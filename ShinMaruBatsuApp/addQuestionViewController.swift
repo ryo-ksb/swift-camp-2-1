@@ -23,7 +23,6 @@ class addQuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBOutlet weak var MaruBatsu: UISegmentedControl!
@@ -38,9 +37,13 @@ class addQuestionViewController: UIViewController {
     @IBAction func saveQuestion(_ sender: Any) {
         
         if MaruBatsu.selectedSegmentIndex == 0 {
+            
             answers = false
+            
         } else {
+            
             answers = true
+            
         }
         
         if questionLabel.text != "" {
@@ -66,6 +69,8 @@ class addQuestionViewController: UIViewController {
         
         questionLabel.text = ""
         
+        questionLabel.endEditing(true)
+        
         print("\(queAns)")
         
     }
@@ -83,7 +88,12 @@ class addQuestionViewController: UIViewController {
         
     }
     
-
+    @IBAction func textKeyboard(_ sender: UITextField) {
+        
+        questionLabel.text = sender.text
+    
+    }
+    
     /*
     // MARK: - Navigation
 
